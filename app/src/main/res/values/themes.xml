@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="Base.Theme.FlashcardScore" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- Clean Quiz theme (NO custom colors) -->
+    <style name="Theme.QuizApp" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Main screen theme -->
+    <style name="Theme.MainScreen" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">#E3F2FD</item>
+    </style>
+
+    <!-- App theme -->
+    <style name="Theme.FlashcardScore" parent="Base.Theme.FlashcardScore" />
+
+</resources>
