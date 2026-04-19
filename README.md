@@ -42,6 +42,35 @@ This project shows:
  - Personalised feedback like:
  - "Master Hacker!" (High Score)
 
+![Score Screen](Screenshots/MasterHacker.png)   
+
+-"Stay Safe Online" (Low Score)
+
+![Score Screen](Screenshots/StaySafeOnline.png)   
+
+### 📔Review Screen
+- Displays all questions.
+- Shows:
+- Correct vs Incorrect answers.
+- Color coded results.
+
+![Review Screen](Screenshots/CorrectvsIncorrect.png)  
+
+## 🎥Animations
+- Smooth transitions between screens using slide animations.
+
+## 🛠️ Technologies Used
+- Kotlin
+- Android Studio
+- XML Layouts
+- Intens (Data Passing)
+
+## 📁 Project Structure 
+
+
+
+
+
  
 
 
