@@ -25,15 +25,17 @@ This project shows:
 
 - FlashCard Style Questions
 - Two Answer options:
-  - Hack (True)
-  - Myth (False)
+  - Hack (True).
+  - Myth (False).
 -Instant Feedback:
-  - ✅ Correct (Green)
+  - ✅ Correct (Green).
     
   ![Quiz Screen ](Screenshots/Correct.png)
 
-  - ❌ Incorrect (red)
+  - ❌ Incorrect (red).
  
- ![Quiz Screen ](Screenshots/Incorrect.png)    
+![Quiz Screen](Screenshots/Incorrect.png)   
+
+ -Navigation through the questions.
   
 
