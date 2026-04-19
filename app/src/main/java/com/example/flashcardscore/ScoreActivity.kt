@@ -3,6 +3,7 @@ package com.example.flashcardscore
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -20,6 +21,14 @@ class ScoreActivity : AppCompatActivity() {
        val txtScore = findViewById<TextView>(R.id.txtScore)//Declaring the textview
         val btnReview = findViewById<Button>(R.id.btnReview)//Declaring the button
         Log.d("APP DEBUG", "VAR DECLARED")
+        val slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in)
+        val slideOut = AnimationUtils.loadAnimation(this, R.anim.slide_out)
+        txtScore.startAnimation(slideIn)
+        btnReview.startAnimation(slideIn)
+        Log.d("APP DEBUG", "ANIMATION STARTED")
+        txtScore.startAnimation(slideOut)
+        btnReview.startAnimation(slideOut)
+        Log.d("APP DEBUG", "ANIMATION STOPPED")
         val score = intent.getIntExtra("score", 0)//WHAT SCORE THE USER
         val total = intent.getIntExtra("total", 0)//WHAT TOTAL THE USER GOT OUT OF 4
         val questions = intent.getStringArrayExtra("questions") ?: arrayOf()

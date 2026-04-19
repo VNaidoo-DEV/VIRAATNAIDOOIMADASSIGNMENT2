@@ -33,6 +33,7 @@ class QuizActivity : AppCompatActivity() {
     )
     val userAnswers = mutableListOf<Boolean>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,7 +53,9 @@ class QuizActivity : AppCompatActivity() {
         btnFalse.setOnClickListener { checkAnswer(false) }
         btnNext.setOnClickListener { nextQuestion() }
 
+
     }
+
 
     private fun loadQuestion() {
         txtQuestion.text = questions[currentIndex].first
@@ -70,7 +73,7 @@ class QuizActivity : AppCompatActivity() {
             txtFeedback.text = "Incorrect!"
             txtFeedback.setTextColor(resources.getColor(R.color.error))
         }
-        userAnswers.add(answer)
+        userAnswers.add(answer==correct)
         if (currentIndex == questions.size - 1) {
             btnNext.text = "Finish"
 

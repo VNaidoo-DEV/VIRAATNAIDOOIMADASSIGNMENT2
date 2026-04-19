@@ -3,6 +3,7 @@ package com.example.flashcardscore
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.AnimationUtils
 
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -18,7 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
         btnStart = findViewById(R.id.btnStart) // Initialize the button
+        val anim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        btnStart.startAnimation(anim)
         Log.d("APP DEBUG", "onCreate called")
         btnStart.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)

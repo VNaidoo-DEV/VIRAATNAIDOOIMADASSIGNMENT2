@@ -7,6 +7,7 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -28,6 +29,14 @@ class ReviewsActivity : AppCompatActivity() {
         binding = ActivityReviewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         btnBack=findViewById(R.id.btnBack)
+        val slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in)
+        val slideOut = AnimationUtils.loadAnimation(this, R.anim.slide_out)
+        binding.txtResult.startAnimation(slideIn)
+        btnBack.startAnimation(slideIn)
+        Log.d("APP DEBUG", "ANIMATION STARTED")
+        binding.txtResult.startAnimation(slideOut)
+        btnBack.startAnimation(slideOut)
+        Log.d("APP DEBUG", "ANIMATION STOPPED")
         val questions = intent.getStringArrayExtra("questions") ?: arrayOf() //WHAT SCORE THE USER
         val answers = intent.getBooleanArrayExtra("answers") ?: booleanArrayOf()
         val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()//WHAT TOTAL THE USER GOT OUT OF 4
@@ -37,27 +46,24 @@ class ReviewsActivity : AppCompatActivity() {
         for (i in questions.indices) {
 
             val question = questions[i]
-            val userAnswer = if (i < userAnswers.size && userAnswers[i]) "Hack" else "Myth"//WHAT SCORE THE USER
-            val correctAnswer = if (i < answers.size && answers[i]) "Hack" else "Myth"//WHAT SCORE THE USER GOT OUT OF 4
 
-            val isCorrect = userAnswer == correctAnswer
-            val color = if (isCorrect) Color.GREEN else Color.RED //Using colours to indicate if the answer is correct or not
+            val isCorrect = i < userAnswers.size && userAnswers[i]
+            val color = if (isCorrect) Color.GREEN else Color.RED
 
             spannable.append("Q${i + 1}: $question\n")
 
-            val startUser = spannable.length
-            spannable.append("Your Answer: $userAnswer\n")
+            val start = spannable.length
+            spannable.append("Your Answer: ${if (isCorrect) "Correct" else "Wrong"}\n")
 
             spannable.setSpan(
                 ForegroundColorSpan(color),
-                startUser,
+                start,
                 spannable.length,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
 
-            spannable.append("Correct Answer: $correctAnswer\n\n")
+            spannable.append("\n")
         }
-
         binding.txtResult.text = spannable
         btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

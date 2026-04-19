@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/txtResult"
-        android:layout_width="355dp"
-        android:layout_height="373dp"
+        android:layout_width="343dp"
+        android:layout_height="311dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="118dp"
         android:background="@color/background"
