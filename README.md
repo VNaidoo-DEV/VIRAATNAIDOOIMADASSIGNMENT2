@@ -65,12 +65,12 @@ This project shows:
 - XML Layouts
 - Intens (Data Passing)
 
-## 📁 Project Structure 
-
-
-
-
-
- 
+## ⚙️How it Works
+1. User Starts the App.
+2. Navigates through the Quiz Questions.
+3. Receives instant feedback.
+4. Score is calculated.
+5. Results displayed.
+6. User reviews the answers that he/she got.
 
 
