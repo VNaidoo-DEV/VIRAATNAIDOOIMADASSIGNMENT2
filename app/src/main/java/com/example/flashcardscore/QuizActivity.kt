@@ -81,7 +81,7 @@ class QuizActivity : AppCompatActivity() {
         Log.d("APP DEBUG", "checkAnswer called")
     }
 
-    private fun startTimer() {
+    private fun startTimer() {//Starting the timer
         timer = object : CountDownTimer(timelimit, 120000) {
             override fun onTick(ms: Long) {
                 txtTimer.text = "Time: ${ms / 120000L}"
@@ -97,7 +97,7 @@ class QuizActivity : AppCompatActivity() {
         }.start()
         //timer.start()
     }
-    private fun nextQuestion() {
+    private fun nextQuestion() {//Starting the Next question
         timer.cancel()
         currentIndex++
         if (currentIndex<questions.size) {
