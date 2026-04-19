@@ -37,5 +37,11 @@ This project shows:
 ![Quiz Screen](Screenshots/Incorrect.png)   
 
  -Navigation through the questions.
-  
+ ### ⚽ Score Screen
+ - Displays total Score
+ - Personalised feedback like:
+ - "Master Hacker!" (High Score)
+
+ 
+
 
