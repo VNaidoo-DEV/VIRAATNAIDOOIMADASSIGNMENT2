@@ -28,20 +28,20 @@ class ReviewsActivity : AppCompatActivity() {
         binding = ActivityReviewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         btnBack=findViewById(R.id.btnBack)
-        val questions = intent.getStringArrayExtra("questions") ?: arrayOf()
+        val questions = intent.getStringArrayExtra("questions") ?: arrayOf() //WHAT SCORE THE USER
         val answers = intent.getBooleanArrayExtra("answers") ?: booleanArrayOf()
-        val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
+        val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()//WHAT TOTAL THE USER GOT OUT OF 4
 
         val spannable = SpannableStringBuilder()
 
         for (i in questions.indices) {
 
             val question = questions[i]
-            val userAnswer = if (i < userAnswers.size && userAnswers[i]) "Hack" else "Myth"
-            val correctAnswer = if (i < answers.size && answers[i]) "Hack" else "Myth"
+            val userAnswer = if (i < userAnswers.size && userAnswers[i]) "Hack" else "Myth"//WHAT SCORE THE USER
+            val correctAnswer = if (i < answers.size && answers[i]) "Hack" else "Myth"//WHAT SCORE THE USER GOT OUT OF 4
 
             val isCorrect = userAnswer == correctAnswer
-            val color = if (isCorrect) Color.GREEN else Color.RED
+            val color = if (isCorrect) Color.GREEN else Color.RED //Using colours to indicate if the answer is correct or not
 
             spannable.append("Q${i + 1}: $question\n")
 
@@ -61,7 +61,7 @@ class ReviewsActivity : AppCompatActivity() {
         binding.txtResult.text = spannable
         btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            startActivity(intent) //Start the MainActivity
         }
     }
 
