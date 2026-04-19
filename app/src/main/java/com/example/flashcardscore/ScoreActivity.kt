@@ -27,7 +27,7 @@ class ScoreActivity : AppCompatActivity() {
         val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
         val percentage = (score.toDouble() / total) * 100
 
-        val feedback = if (percentage >= 60) "WELL DONE" else "TRY AGAIN"
+        val feedback = if (percentage >= 60) "MASTER HACKER" else "STAY SAFE ONLINE"
 
         txtScore.text = "Score: $score/$total (${percentage.toInt()}%)\n$feedback"
 
