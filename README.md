@@ -38,5 +38,10 @@ This project shows:
 
  -Navigation through the questions.
  ### ⚽ Score Screen
+ - Displays total Score
+ - Personalised feedback like:
+ - "Master Hacker!" (High Score)
+
+ 
 
 
