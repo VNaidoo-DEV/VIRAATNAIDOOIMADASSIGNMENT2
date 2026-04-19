@@ -37,5 +37,6 @@ This project shows:
 ![Quiz Screen](Screenshots/Incorrect.png)   
 
  -Navigation through the questions.
-  
+ ### ⚽ Score Screen
+
 
