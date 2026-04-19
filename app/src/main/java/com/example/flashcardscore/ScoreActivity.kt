@@ -22,25 +22,28 @@ class ScoreActivity : AppCompatActivity() {
 
         val score = intent.getIntExtra("score", 0)//WHAT SCORE THE USER
         val total = intent.getIntExtra("total", 0)//WHAT TOTAL THE USER GOT OUT OF 4
+        val questions = intent.getStringArrayExtra("questions") ?: arrayOf()
+        val answers = intent.getBooleanArrayExtra("answers") ?: booleanArrayOf()
+        val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
+        val percentage = (score.toDouble() / total) * 100
 
-        txtScore.text="Score : $score/$total"
+        val feedback = if (percentage >= 60) "WELL DONE" else "TRY AGAIN"
+
+        txtScore.text = "Score: $score/$total (${percentage.toInt()}%)\n$feedback"
+
+
+
         Log.d("APP DEBUG", "onCreate called")
 
         btnReview.setOnClickListener {
 
-            Toast.makeText(this, "CLICKED", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ReviewsActivity::class.java)
-            intent.putExtra("questions",intent.getStringArrayExtra("questions"))
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("answers",intent.getBooleanArrayExtra("answers"))
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("userAnswers",intent.getBooleanArrayExtra("userAnswers"))
-            Log.d("APP DEBUG", "Button clicked")
-            Toast.makeText(this, "Before Intent", Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-            Log.d("APP DEBUG", "ACT STARTED")
-            Toast.makeText(this, "After Intent", Toast.LENGTH_SHORT).show()
 
+            intent.putExtra("questions", questions)
+            intent.putExtra("answers", answers)
+            intent.putExtra("userAnswers", userAnswers)
+
+            startActivity(intent)
         }
 
     }

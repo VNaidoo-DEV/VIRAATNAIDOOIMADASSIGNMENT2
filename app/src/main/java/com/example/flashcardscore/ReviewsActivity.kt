@@ -1,7 +1,11 @@
 package com.example.flashcardscore
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
@@ -13,38 +17,53 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.flashcardscore.databinding.ActivityReviewsBinding
 
 class ReviewsActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityReviewsBinding
+    lateinit var btnBack: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_reviews)
-        //txtResult.text = "HELLO REVIEW SCREEN WORKS"
 
+        binding = ActivityReviewsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        btnBack=findViewById(R.id.btnBack)
+        val questions = intent.getStringArrayExtra("questions") ?: arrayOf()
+        val answers = intent.getBooleanArrayExtra("answers") ?: booleanArrayOf()
+        val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
 
-                binding = ActivityReviewsBinding.inflate(layoutInflater)
-                setContentView(binding.root)
+        val spannable = SpannableStringBuilder()
 
-                val questions = intent.getStringArrayExtra("questions") ?: emptyArray()
-                val answers = intent.getBooleanArrayExtra("answers") ?: booleanArrayOf()
-                val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
+        for (i in questions.indices) {
 
-                val result = StringBuilder()
+            val question = questions[i]
+            val userAnswer = if (i < userAnswers.size && userAnswers[i]) "Hack" else "Myth"
+            val correctAnswer = if (i < answers.size && answers[i]) "Hack" else "Myth"
 
-                for (i in questions.indices) {
-                    val user = if (i < userAnswers.size && userAnswers[i]) "Hack" else "Myth"
-                    val correct = if (i < answers.size && answers[i]) "Hack" else "Myth"
+            val isCorrect = userAnswer == correctAnswer
+            val color = if (isCorrect) Color.GREEN else Color.RED
 
-                    result.append(
-                        """
-                Q${i + 1}: ${questions[i]}
-                Your Answer: $user
-                Correct Answer: $correct
+            spannable.append("Q${i + 1}: $question\n")
 
-            """.trimIndent()
-                    )
-                }
+            val startUser = spannable.length
+            spannable.append("Your Answer: $userAnswer\n")
 
-                binding.txtResult.text = result.toString()
-            }
+            spannable.setSpan(
+                ForegroundColorSpan(color),
+                startUser,
+                spannable.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+            spannable.append("Correct Answer: $correctAnswer\n\n")
         }
 
+        binding.txtResult.text = spannable
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+    }
