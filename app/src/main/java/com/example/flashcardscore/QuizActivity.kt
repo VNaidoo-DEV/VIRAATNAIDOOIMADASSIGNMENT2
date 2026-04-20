@@ -11,122 +11,103 @@ import androidx.appcompat.app.AppCompatActivity
 //import android.os.CountDownTimer
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.color.utilities.Score
 
 class QuizActivity : AppCompatActivity() {
-    lateinit var txtTimer: TextView
     lateinit var txtQuestion: TextView
     lateinit var btnTrue: Button
     lateinit var btnFalse: Button
     lateinit var txtFeedback: TextView
     lateinit var btnNext: Button
-    lateinit var timer: CountDownTimer
 
-    var currentIndex = 0
+    var currentQuestion = 0
     var score = 0
-    val timelimit = 120000L
-
     val questions = arrayOf(
-        "Using strong passwords improves security." to true,
-        "Public WiFi is always safe." to false,
-        "Antivirus software is unnecessary." to false,
-        "Updating apps improve security." to true
+        "Using strong passwords improves security.",
+        "Public WiFi is always safe.",
+        "Antivirus is unnecessary.",
+        "Updating apps improves security."
     )
-    val userAnswers = mutableListOf<Boolean>()
 
+    val correctAnswers = booleanArrayOf(true, false, false, true)
+    lateinit var userAnswers: BooleanArray
+    var selectedAnswer: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_quiz)
-
         txtQuestion = findViewById(R.id.txtQuestion)
-        txtTimer = findViewById(R.id.txtTimer)
-        txtFeedback = findViewById(R.id.txtFeedback)
         btnTrue = findViewById(R.id.btnTrue)
         btnFalse = findViewById(R.id.btnFalse)
+        txtFeedback = findViewById(R.id.txtFeedback)
         btnNext = findViewById(R.id.btnNext)
 
-        loadQuestion()
-        startTimer()
+        userAnswers = BooleanArray(questions.size) // Initialize userAnswers array
 
-        btnTrue.setOnClickListener { checkAnswer(true) }
-        btnFalse.setOnClickListener { checkAnswer(false) }
-        btnNext.setOnClickListener { nextQuestion() }
+        txtQuestion.text = questions[currentQuestion] //FIRST QUESTION
 
-
-    }
-
-
-    private fun loadQuestion() {
-        txtQuestion.text = questions[currentIndex].first
-        Log.d("APP DEBUG", "loadQuestion called")
-    }
-
-    private fun checkAnswer(answer: Boolean) {
-        timer.cancel()
-        val correct = questions[currentIndex].second
-        if (answer == correct) {
-            score++
-            txtFeedback.text = "Correct!"
-            txtFeedback.setTextColor(resources.getColor(R.color.accent))
-        } else {
-            txtFeedback.text = "Incorrect!"
-            txtFeedback.setTextColor(resources.getColor(R.color.error))
+        btnTrue.setOnClickListener {
+            selectedAnswer = true
+            txtFeedback.text = "Selected: True "
         }
-        userAnswers.add(answer==correct)
-        if (currentIndex == questions.size - 1) {
-            btnNext.text = "Finish"
 
+        btnFalse.setOnClickListener {
+            selectedAnswer = false
+            txtFeedback.text = "Selected: False"
         }
-        btnTrue.isEnabled = false
-        btnFalse.isEnabled = false
-        //btnNext.isEnabled = true
-        Log.d("APP DEBUG", "checkAnswer called")
-    }
 
-    private fun startTimer() {//Starting the timer
-        timer = object : CountDownTimer(timelimit, 120000) {
-            override fun onTick(ms: Long) {
-                txtTimer.text = "Time: ${ms / 120000L}"
+        btnNext.setOnClickListener {
+            if (selectedAnswer == null) {
+                txtFeedback.text = "Please select an answer!"
+                return@setOnClickListener
             }
-            override fun onFinish() {
-                txtFeedback.text = "Time's up!"
-                userAnswers.add(false)
-                nextQuestion()
-                Log.d("APP DEBUG", "onFinish called")
+            // Save answer
+            userAnswers[currentQuestion] = selectedAnswer!!
 
+            // Check answer
+            if (selectedAnswer == correctAnswers[currentQuestion]) {
+                score++
+                txtFeedback.text = "Correct!"
+            } else {
+                txtFeedback.text = "Incorrect!"
             }
 
-        }.start()
-        //timer.start()
-    }
-    private fun nextQuestion() {//Starting the Next question
-        timer.cancel()
-        currentIndex++
-        if (currentIndex<questions.size) {
-            loadQuestion()
-            startTimer()
-            btnTrue.isEnabled = true
-            btnFalse.isEnabled = true
-            txtFeedback.text = ""
-            Log.d("APP DEBUG", "nextQuestion called")
-        }else{
-            val intent = Intent(this, ScoreActivity::class.java)
-            intent.putExtra("score", score)
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("total", questions.size)
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("questions",questions.map { it.first }.toTypedArray())
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("answers", questions.map { it.second }.toTypedArray())
-            Log.d("APP DEBUG", "Button clicked")
-            intent.putExtra("userAnswers", userAnswers.toBooleanArray())
-            Log.d("APP DEBUG", "Button clicked")
-            startActivity(intent)
-            finish()
-            Log.d("APP DEBUG", "nextQuestion called")
+            // Move to next question
+            currentQuestion++
+
+            if (currentQuestion < questions.size) {
+
+                // UPDATE QUESTION TEXT
+                txtQuestion.text = questions[currentQuestion]
+                selectedAnswer = null
+                //  RESET FEEDBACK
+                txtFeedback.text = ""
+
+            } else {
+
+                val intent = Intent(this, ScoreActivity::class.java)
+                intent.putExtra("score", score)
+                intent.putExtra("total", questions.size)
+                intent.putExtra("questions", questions)
+                intent.putExtra("correctAnswers", correctAnswers)
+                intent.putExtra("userAnswers", userAnswers)
+
+                startActivity(intent)
+                finish()
+            }
         }
-    }
+
 
     }
+
+}
+
+
+
+
+
+
+
+
 
