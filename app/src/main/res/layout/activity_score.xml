@@ -23,10 +23,11 @@
 
             <TextView
                 android:id="@+id/txtResult"
-                android:layout_width="329dp"
-                android:layout_height="276dp"
+                android:layout_width="293dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="20dp"
                 android:background="@color/white"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <Button
@@ -35,11 +36,18 @@
                 android:layout_height="wrap_content"
                 android:text="Review Answers" />
 
-            <TextView
-                android:id="@+id/txtResult2"
-                android:layout_width="372dp"
-                android:layout_height="258dp"
-                android:background="@color/white" />
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:text="Close" />
+
 
         </LinearLayout>
 
