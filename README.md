@@ -1,7 +1,7 @@
 # 🔐Hack or Myth Quiz App
 ## 💻Overview
 The Hack or Myth Quiz App is an Android application developed in Kotlin using Android Studio. 
-It educates Users about cybersecurity awareness by allowing them to distinguish between real online safety practices ("Hacks") and common misconceptions ("Myths").
+This app tests users on cybersecurity knowledge using True or False questions.
 
 ![FlashCardScore Screen](Screenshots/FlashScoreCardMainScreeen.png)
 
@@ -26,9 +26,10 @@ This project shows:
 
 - FlashCard Style Questions
 - Two Answer options:
-  - Hack (True).
-  - Myth (False).
--Instant Feedback:
+  - True.
+  - False.
+    
+- Feedback after answering:
   - ✅ Correct (Green).
     
   ![Quiz Screen ](Screenshots/Correct.png)
@@ -41,21 +42,15 @@ This project shows:
  ### ⚽ Score Screen
  - Displays total Score
  - Personalised feedback like:
- - "Master Hacker!" (High Score)
+ - "Well Done" (High Score)
 
-![Score Screen](Screenshots/MasterHacker.png)   
+![Score Screen](Screenshots/WellDone.png)   
 
--"Stay Safe Online" (Low Score)
+-"Try again" (Low Score)
 
-![Score Screen](Screenshots/StaySafeOnline.png)   
+![Score Screen](Screenshots/Tryagain.png)   
 
-### 📔Review Screen
-- Displays all questions.
-- Shows:
-- Correct vs Incorrect answers.
-- Color coded results.
-
-![Review Screen](Screenshots/CorrectvsIncorrect.png)  
+ 
 
 ## 🎥Animations
 - Smooth transitions between screens using slide animations.
@@ -80,10 +75,25 @@ This project shows:
 3. Sync Gradle.
 4. Run on emulator or device.
 
+## 🥤Conclusion
+This project demonstrates the fundamental basics of understanding cybersecurity like:
+- Basic Android UI design.
+- Kotlin programming.
+- Arrays and Loops.
+- Activity navigation.
+
 ## 🔮 Future Improvements
 - Add Database (SQLite/Firebase).
 - Add difficulty levels.
 - Improve UI with Material Design Components.
+
+## ✅Notes
+- Arrays are used instead of mutable lists.
+- No unnecessary functions are used.
+- A loop is used to display results.
+- The review feature is implemented within the score screen.
+- A back button to retry the quiz.
+- Close button to close the app. 
 
 ## 👨🏾‍💻 Author
 Viraat Naidoo
