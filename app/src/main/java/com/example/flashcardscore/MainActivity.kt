@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         btnStart = findViewById(R.id.btnStart) // Initialize the button
         val anim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         btnStart.startAnimation(anim)
+
         Log.d("APP DEBUG", "onCreate called")
         btnStart.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
