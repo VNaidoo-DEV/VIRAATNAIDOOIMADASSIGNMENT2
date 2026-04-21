@@ -54,7 +54,7 @@ class QuizActivity : AppCompatActivity() {
 
         btnFalse.setOnClickListener {
             selectedAnswer = false
-            txtFeedback.text = "Selected: False"
+           txtFeedback.text = "Selected: False"
         }
 
         btnNext.setOnClickListener {

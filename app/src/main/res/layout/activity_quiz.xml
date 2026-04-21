@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
         <Button
@@ -36,10 +37,11 @@
 
         <TextView
             android:id="@+id/txtFeedback"
-            android:layout_width="179dp"
+            android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/white"
+            android:textColor="#0417BF"
             android:textSize="16sp" />
 
         <Button

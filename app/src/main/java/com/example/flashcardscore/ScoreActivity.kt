@@ -38,13 +38,22 @@ class ScoreActivity : AppCompatActivity() {
         val questions = intent.getStringArrayExtra("questions") ?: arrayOf()
         val correct = intent.getBooleanArrayExtra("correctAnswers") ?: booleanArrayOf()
         val userAnswers = intent.getBooleanArrayExtra("userAnswers") ?: booleanArrayOf()
+        val slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in)
+        txtResult.startAnimation(slideIn)
+        btnReview.startAnimation(slideIn)
+        btnBack.startAnimation(slideIn)
+        btnClose.startAnimation(slideIn)
 
 
 
-        if (score == total) {
-            txtResult.text = "Well done $score/$total"
-        }else{
-            txtResult.text = "Try Again $score/$total"
+        val percentage = ((score.toDouble() / total) * 100).toInt()
+
+        if (percentage >= 75) {
+            txtResult.text = "Well done $score/$total ($percentage%)"
+            txtResult.setTextColor(android.graphics.Color.GREEN)
+        } else {
+            txtResult.text = "Try again $score/$total ($percentage%)"
+            txtResult.setTextColor(android.graphics.Color.RED)
         }
 
         //txtResult.textSize = 24f
@@ -104,7 +113,7 @@ class ScoreActivity : AppCompatActivity() {
                     android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
-
+                txtResult2.startAnimation(slideIn)
                 txtResult2.text = spannable
                 txtResult2.textSize = 18f
                 txtResult2.setBackgroundColor(android.graphics.Color.WHITE)
