@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:text="Test your knowledge about online safety hacks."
-                android:textColor="#12FD01" />
+                android:textColor="@color/accent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnStart"

@@ -33,6 +33,7 @@ class QuizActivity : AppCompatActivity() {
     lateinit var userAnswers: BooleanArray
     var selectedAnswer: Boolean? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,7 +43,7 @@ class QuizActivity : AppCompatActivity() {
         btnFalse = findViewById(R.id.btnFalse)
         txtFeedback = findViewById(R.id.txtFeedback)
         btnNext = findViewById(R.id.btnNext)
-
+        Log.d("APP DEBUG", "onCreate called")
         userAnswers = BooleanArray(questions.size) // Initialize userAnswers array
 
         txtQuestion.text = questions[currentQuestion] //FIRST QUESTION
@@ -59,8 +60,9 @@ class QuizActivity : AppCompatActivity() {
 
         btnNext.setOnClickListener {
             if (selectedAnswer == null) {
-                txtFeedback.text = "Please select an answer!"
+                txtFeedback.text = "Please select an answer!"// Display error message if no answer is selected
                 return@setOnClickListener
+
             }
             // Save answer
             userAnswers[currentQuestion] = selectedAnswer!!
@@ -86,12 +88,13 @@ class QuizActivity : AppCompatActivity() {
 
             } else {
 
-                val intent = Intent(this, ScoreActivity::class.java)
+                val intent = Intent(this, ScoreActivity::class.java)//Linking Screens
                 intent.putExtra("score", score)
                 intent.putExtra("total", questions.size)
                 intent.putExtra("questions", questions)
                 intent.putExtra("correctAnswers", correctAnswers)
                 intent.putExtra("userAnswers", userAnswers)
+                Log.d("APP DEBUG", "INTENT CONDITIONS EXECUTED")
 
                 startActivity(intent)
                 finish()
