@@ -26,7 +26,8 @@ class QuizActivity : AppCompatActivity() {
         "Using strong passwords improves security.",
         "Public WiFi is always safe.",
         "Antivirus is unnecessary.",
-        "Updating apps improves security."
+        "Updating apps improves security.",
+        "Backing up data helps protect against ransomware."
     )
 
     val correctAnswers = booleanArrayOf(true, false, false, true)
