@@ -17,10 +17,10 @@ This project shows:
 - App introduction
 - Start button to begin the Quiz
   
-![FlashCardScore Screen](Screenshots/FlashScoreCardMainScreeen.png)
+![FlashCardScore Screen](FlashScoreCardMainScreeen.png)
 
 ### ❓Quiz Screen
- ![Quiz Screen ](Screenshots/QuizScreen.png)
+ ![Quiz Screen ](QuizScreen.png)
 
 - FlashCard Style Questions
 - Two Answer options:
@@ -30,11 +30,11 @@ This project shows:
 - Feedback after answering:
   - ✅ Correct (Green).
     
-  ![Quiz Screen ](Screenshots/Correct.png)
+  ![Quiz Screen ](Correct.png)
 
   - ❌ Incorrect (Red).
  
-![Quiz Screen](Screenshots/Incorrect.png)   
+![Quiz Screen](Incorrect.png)   
 
  -Navigation through the questions.
  ### ⚽ Score Screen
@@ -42,11 +42,11 @@ This project shows:
  - Personalised feedback like:
  - "Well Done" (High Score)
 
-![Score Screen](Screenshots/WellDone.png)   
+![Score Screen](WellDone.png)   
 
 -"Try again" (Low Score)
 
-![Score Screen](Screenshots/Tryagain.png)   
+![Score Screen](Tryagain.png)   
 
  
 ## 🎥Animations
