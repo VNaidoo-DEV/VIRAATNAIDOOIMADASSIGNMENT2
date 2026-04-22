@@ -30,7 +30,7 @@ class QuizActivity : AppCompatActivity() {
         "Backing up data helps protect against ransomware."
     )
 
-    val correctAnswers = booleanArrayOf(true, false, false, true)
+    val correctAnswers = booleanArrayOf(true, false, false, true,true)
     lateinit var userAnswers: BooleanArray
     var selectedAnswer: Boolean? = null
 
