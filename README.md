@@ -45,7 +45,7 @@ This project shows:
  - Personalised feedback like:
  - "Well Done" (High Score)
 
-![Score Screen](WellDone.png)   
+![Score Screen](WellDone.png)  
 
 -"Try again" (Low Score)
 
