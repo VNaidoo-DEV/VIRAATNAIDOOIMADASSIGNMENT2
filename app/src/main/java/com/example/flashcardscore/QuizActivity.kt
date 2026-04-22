@@ -27,7 +27,8 @@ class QuizActivity : AppCompatActivity() {
         "Public WiFi is always safe.",
         "Antivirus is unnecessary.",
         "Updating apps improves security.",
-        "Backing up data helps protect against ransomware."
+        "Backing up data helps protect against ransomware.",
+        "Hackers only target big companies, not individuals."
     )
 
     val correctAnswers = booleanArrayOf(true, false, false, true,true)
