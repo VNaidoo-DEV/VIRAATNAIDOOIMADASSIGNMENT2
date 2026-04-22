@@ -31,7 +31,7 @@ class QuizActivity : AppCompatActivity() {
         "Hackers only target big companies, not individuals."
     )
 
-    val correctAnswers = booleanArrayOf(true, false, false, true,true)
+    val correctAnswers = booleanArrayOf(true, false, false, true,true,false)
     lateinit var userAnswers: BooleanArray
     var selectedAnswer: Boolean? = null
 
