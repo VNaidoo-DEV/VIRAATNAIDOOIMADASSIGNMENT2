@@ -38,7 +38,10 @@ This project shows:
 
  -Navigation through the questions.
  ### ⚽ Score Screen
- - Displays total Score
+ - Displays total Score.
+
+   ![Score Screen](DisplayScore.png)
+  
  - Personalised feedback like:
  - "Well Done" (High Score)
 
