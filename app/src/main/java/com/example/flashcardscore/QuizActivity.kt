@@ -79,8 +79,10 @@ class QuizActivity : AppCompatActivity() {
             if (selectedAnswer == correctAnswers[currentQuestion]) {
                 score++
                 txtFeedback.text = "✔️Correct!"
+                txtFeedback.setTextColor(android.graphics.Color.GREEN)
             } else {
                 txtFeedback.text = "❌Incorrect!"
+                txtFeedback.setTextColor(android.graphics.Color.RED)
             }
             txtFeedback.postDelayed({
             // Move to next question
