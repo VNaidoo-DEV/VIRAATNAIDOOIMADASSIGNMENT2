@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         btnStart.startAnimation(anim)
 
         Log.d("APP DEBUG", "onCreate called")
+        // Set onClickListener for the button
         btnStart.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
