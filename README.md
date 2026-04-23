@@ -22,7 +22,7 @@ This project shows:
 ### ❓Quiz Screen
  ![Quiz Screen ](QuizScreen.png)
 
-- FlashCard Style Questions
+- Questions are displayed sequentially using an index-based system, allowing users to navigate through the quiz one question at a time.
 - Two Answer options:
   - True.
   - False.
@@ -51,6 +51,7 @@ This project shows:
 
 ![Score Screen](Tryagain.png)   
 
+- The review feature allows users to revisit their answers after completing the quiz, using stored responses to display feedback for each question.
  
 ## 🎥Animations
 - Smooth transitions between screens using slide animations.
