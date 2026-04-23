@@ -58,8 +58,7 @@ class ScoreActivity : AppCompatActivity() {
         }
         Log.d("APP DEBUG","IF CONDITION EXECUTED")
 
-        //txtResult.textSize = 24f
-        //container.addView(txtResult)
+        
         //DECLARED BTNREVIEW SETONCLICKLISTENER OBJECT
         btnReview.setOnClickListener{
             Log.d("APP DEBUG","REVIEW BUTTON CLICKED")
