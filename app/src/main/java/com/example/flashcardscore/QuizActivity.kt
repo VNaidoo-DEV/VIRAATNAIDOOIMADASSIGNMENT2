@@ -52,6 +52,7 @@ class QuizActivity : AppCompatActivity() {
         txtQuestion.text = questions[currentQuestion] //FIRST QUESTION
         val anim= AnimationUtils.loadAnimation(this,R.anim.fade_in)
         txtQuestion.startAnimation(anim)
+        txtFeedback.startAnimation(anim)
 
         btnTrue.setOnClickListener {
             selectedAnswer = true
