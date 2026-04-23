@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -49,15 +50,19 @@ class QuizActivity : AppCompatActivity() {
         userAnswers = BooleanArray(questions.size) // Initialize userAnswers array
 
         txtQuestion.text = questions[currentQuestion] //FIRST QUESTION
+        val anim= AnimationUtils.loadAnimation(this,R.anim.fade_in)
+        txtQuestion.startAnimation(anim)
 
         btnTrue.setOnClickListener {
             selectedAnswer = true
             txtFeedback.text = "Selected: True "
+            txtFeedback.setTextColor(android.graphics.Color.GREEN)
         }
 
         btnFalse.setOnClickListener {
             selectedAnswer = false
            txtFeedback.text = "Selected: False"
+            txtFeedback.setTextColor(android.graphics.Color.RED)
         }
 
         btnNext.setOnClickListener {
@@ -72,11 +77,11 @@ class QuizActivity : AppCompatActivity() {
             // Check answer
             if (selectedAnswer == correctAnswers[currentQuestion]) {
                 score++
-                txtFeedback.text = "Correct!"
+                txtFeedback.text = "✔️Correct!"
             } else {
-                txtFeedback.text = "Incorrect!"
+                txtFeedback.text = "❌Incorrect!"
             }
-
+            txtFeedback.postDelayed({
             // Move to next question
             currentQuestion++
 
@@ -101,11 +106,12 @@ class QuizActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-        }
+        }, 1000) // Delay of 1 second before moving to the next question
 
 
     }
 
+}
 }
 
 
