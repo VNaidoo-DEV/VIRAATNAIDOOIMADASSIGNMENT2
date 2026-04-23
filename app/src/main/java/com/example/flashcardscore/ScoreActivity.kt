@@ -58,7 +58,7 @@ class ScoreActivity : AppCompatActivity() {
         }
         Log.d("APP DEBUG","IF CONDITION EXECUTED")
 
-        
+
         //DECLARED BTNREVIEW SETONCLICKLISTENER OBJECT
         btnReview.setOnClickListener{
             Log.d("APP DEBUG","REVIEW BUTTON CLICKED")
