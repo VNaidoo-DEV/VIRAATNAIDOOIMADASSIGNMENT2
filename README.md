@@ -22,7 +22,7 @@ This project shows:
 ### ❓Quiz Screen
  ![Quiz Screen ](QuizScreen.png)
 
-- FlashCard Style Questions
+- Questions are displayed sequentially using an index-based system, allowing users to navigate through the quiz one question at a time.
 - Two Answer options:
   - True.
   - False.
@@ -51,6 +51,7 @@ This project shows:
 
 ![Score Screen](Tryagain.png)   
 
+- The review feature allows users to revisit their answers after completing the quiz, using stored responses to display feedback for each question.
  
 ## 🎥Animations
 - Smooth transitions between screens using slide animations.
@@ -95,11 +96,10 @@ This project shows:
 4. Run on emulator or device.
 
 ## 🥤Conclusion
-This project demonstrates the fundamental basics of understanding cybersecurity like:
-- Basic Android UI design.
-- Kotlin programming.
-- Arrays and Loops.
-- Activity navigation.
+This project demonstrates a strong foundation in Android application development using Kotlin. 
+It highlights key concepts such asuser interaction, activity navigation, conditional logic and data handling.
+Through this project, practical experience was gained in building a functional, user- friendly mobile application that simulates real world quiz systems. 
+The application can be further enhanced with database integration and advance UI components to meet industry standards.
 
 ## 🔮 Future Improvements
 - Add Database (SQLite/Firebase).
